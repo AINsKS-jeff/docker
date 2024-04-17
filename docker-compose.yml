@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: 'post-python-app'
+    ports:
+      - "5000:5000"  # Mapeie a porta do contêiner Flask para a porta do host
+    volumes:
+      - .:/home/python/app  # Monte o diretório de trabalho do contêiner para o diretório raiz do projeto

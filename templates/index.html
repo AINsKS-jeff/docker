@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        #menu {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2px 0;
+        }
+        h1, h2 {
+            color: #fff;
+        }
+        #post-form {
+            width: 60%; 
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        #post-form label {
+            font-weight: bold;
+        }
+        #post-form input[type="text"], #post-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        #post-form textarea {
+            resize: none;
+        }
+        #post-form button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #post-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h1>Blog</h1>
+    </div>
+    
+    <form id="post-form" method="POST" action="/posts">
+        
+        <label for="title">Título:</label><br>
+        <input type="text" id="title" name="title" required><br>
+        <label for="content">Conteúdo:</label><br>
+        <textarea id="content" name="content" required></textarea><br>
+        <label for="author">Autor:</label><br>
+        <input type="text" id="author" name="author" required><br><br>
+        <button type="submit">Publicar</button>
+        <a href="/posts">
+            <button type="button">Lista de Posts</button>
+        </a>
+        
+    </form>
+    
+    
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            border: none;
+        } 
+
+        #menu {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2px 0;
+        }
+
+        h1 {
+            color: #fff;
+            font-family: 'Times New Roman';
+            font-size: 40px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #back-button {
+            display: block;
+            width: 80px;
+            height: 30px;
+            margin: 20px auto;
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            border: none;
+        }
+
+        #back-button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #btn-delete {
+            padding: 10px 15px;
+            background-color: #ff0000a9;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        #btn-delete:hover {
+            background-color: #ff0000;
+        }
+
+        #btn-details {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #btn-details:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h1>Posts</h1>
+    </div>
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Conteúdo</th>
+            <th>Ação</th>
+        </tr>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post[1] }}</td>
+                <td>{{ post[3] }}</td>
+                <td>{{ post[2] }}</td>
+                <td>
+                    <form action="/delete_post/{{ post[0] }}" method="post">
+                        <button type="submit" id="btn-delete">DELETAR POST</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/">
+        <button type="button" id="back-button">Voltar</button>
+    </a>
+</body>
+</html>
